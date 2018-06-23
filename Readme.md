@@ -21,11 +21,11 @@ Le but étant d'écrire le plus de mots possible dans un temps donné.**
 J'ai le sentiment d'avoir utilisé les `class` de la mauvaise façon. Je m'en suis rendu compte en les utilisant et en pensant à les ré-utiliser. Il faudrait que chaque `class` ne comprenne uniquement que les fonctions vraiment "core" à son utilisation. 
 Ex: Timer : Init, Reset, Start, Stop
 
-### API
+## API
 
 j'ai utilisé la très bonne API [Datamuse](https://www.datamuse.com/) pour générer les listes de mots.
 
-#### Information Inutile
+## Information Inutile
 
 :clock1030: 
 J'ai passé entre 25h et 30h sur l'ensemble de ce projet.
