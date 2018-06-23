@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="UTF-8">
+	<title>Dactypo</title>
+
+	<!-- Mobile scale -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Import fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">  
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/normalize.css" type="text/css">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+
+</head>
+
+<body class="home">
+
+	<div id="app" :style='styleTimer()' :class="[isTicking ? 'counterTicking' : '']">
+		
+		<div class="appContent">
+
+			<header>
+
+				<h3 class="toggleHelp" @click="toggleHelp">
+					<span v-if="!helpOn"> Help </span>
+					<span v-if="helpOn"> X </span>
+				</h3>
+
+				<img class="logo" src="img/logo.svg">
+
+				<h3 class="toggleLeaderboard" @click="toggleLeaderboard">
+					<span v-if="!leaderboardOn"> Top <br/> score </span>
+					<span v-if="leaderboardOn"> X </span>
+				</h3>
+
+			</header>
+
+			
+			<!-- Current score, timer and level -->
+
+			<transition name="fade">
+
+				<section id="gameData" v-show="!leaderboardOn&&!helpOn">
+
+					<score>
+						<h3> Score </h3>
+					</score> 
+
+					<counter :style='styleTimer()' :class="[isTicking ? 'errorColor' : '']">
+						<h3> Timer </h3>
+					</counter>
+
+					<niveau>
+						<h3> Level </h3>
+					</niveau>
+
+				</section>
+
+			</transition>
+
+			
+			<!-- Displayed when the game is lost -->
+
+			<transition name="fade">
+
+				<section id="lost" v-show="lost">
+
+					<div class="consolation">
+						<span> {{ scoreMessage }} </span>
+					</div>
+
+					<div class="scoreFinal"> 
+						<span class="score"> {{ score }} pts </span>
+
+						<form v-on:submit.prevent="addNewScore">
+
+							<input 
+								type="text" 
+								id="pseudo" 
+								placeholder="Your name" 
+								autocomplete="off" 
+								v-model="newScoreName" 
+								maxlength="8"
+							>	
+
+							<button type="submit" class="save"> Save </button>
+
+						</form>
+
+					</div>
+
+					<button @click="startAgain" class="startAgain"> {{ playMessage }} </button>
+
+				</section>
+
+			</transition>
+
+
+			<!-- Leaderboard -->
+
+			<transition name="fade">
+
+				<section id="allScores" v-show="leaderboardOn">
+
+					<ul>
+						<li class="topTabScore">
+							<span class="finalRank"> Rank </span>
+							<span class="finalName"> Name </span>
+							<span class="finalScore"> Score </span>
+						</li>
+
+						<li class="leaderboard" v-for="(score, index, name, finalScore) in even(scores)" >
+							<span class="finalRank"> {{ index + 1 }} </span>
+							<span class="finalName"> {{ score.name }} </span>
+							<span class="finalScore"> {{ score.finalScore }} </span>
+						</li>
+					</ul>
+
+					<button @click="startAgain" class="startAgain"> {{ playMessage }} </button>
+
+				</section>
+
+			</transition>	
+
+
+			<!-- How to play -->
+
+			<transition name="fade">
+
+				<section id="instruction" v-show="helpOn"> 
+
+					<h3> How to play </h3>
+
+					<ul>
+						<li> 1. Type the words the fastest you can </li>
+						<li> 2. Validate by hitting space or enter </li>
+						<li> 3. Score the most </li>
+						<li> 4. Beat your friends </li>
+						<li> 5. Rub it in their faces </li>
+					</ul>
+
+					<button @click="startAgain" class="startAgain"> {{ playMessage }} </button>
+
+				</section>
+
+			</transition>
+			
+
+			<!-- Input to type the words -->
+
+			<transition name="fade">
+				
+				<section id="wordToWrite">
+					
+					<input 
+						type="text" 
+						v-model="wordsToWrite" 
+						v-show="!leaderboardOn&&!helpOn" 
+						v-if="!lost" 
+						id="textField" 
+						ref="wordsToWrite" 
+						@keydown.enter="checkWord" 
+						@keydown.space="checkWord" 
+						@keydown.once="setTimer"  
+						autocomplete="off" 
+					>
+
+				</section>
+
+			</transition>
+
+
+			<!-- Words to write list -->
+
+			<transition name="fade">
+
+				<section id="wordsList">
+
+					<div class="encouragementWord" :style='encouragementWordFunction()' :class="[nextLevel ? 'active' : '']"> {{ encouragementWord }} </div>
+					<div class="makeItHarderWord" :class="[condmakeItHarderWord ? 'active' : '']"> {{ makeItHarderWord }} </div>
+						
+					<ul v-show="!leaderboardOn&&!helpOn" v-if="!lost">
+						
+						<li v-for="(word, index) in words" :class="{ 'active': index === 0, 'nextWord': index === 1, 'nextNextWord': index === 2, 'error': !success && index === 0 }" > {{ word.word }} </li>
+
+					</ul>
+
+				</section>
+
+			</transition>
+
+		</div>
+
+	</div>
+
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+	<script src="js/app.js"></script>  	
+
+</body>
+
+</html>

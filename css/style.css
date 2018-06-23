@@ -1,0 +1,338 @@
+/* Variable */
+/* Global */
+html, body {
+  position: relative;
+  height: 100%;
+  background: #EE7579;
+  overflow-y: hidden;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  line-height: 25px;
+  font-weight: 400;
+  color: #fafafa; }
+
+/* Application */
+#app {
+  min-height: 100vh; }
+  #app.counterTicking {
+    -webkit-animation: timerTick 1s infinite;
+    animation: timerTick 1s infinite; }
+  #app .appContent {
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    /* Global */
+    /* Header, Menu */
+    /* Current score, timer and level */
+    /* Displayed part when the game is lost */
+    /* Leaderboard part */
+    /* How to play part */
+    /* Input to type the words */
+    /* Words to write list */ }
+    #app .appContent .fade-enter-active {
+      -webkit-transition: opacity 2s;
+      -o-transition: opacity 2s;
+      transition: opacity 2s; }
+    #app .appContent .fade-enter {
+      opacity: 0; }
+    #app .appContent button {
+      cursor: pointer; }
+    #app .appContent h3 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 25px; }
+    #app .appContent button.startAgain {
+      background: #FFE751;
+      width: 300px;
+      margin: 50px auto 20px !important;
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      font-family: 'Amatic SC', cursive;
+      font-size: 20px;
+      color: #191919;
+      text-transform: uppercase;
+      text-align: center; }
+    #app .appContent header {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      width: 600px;
+      margin: 20px 0;
+      text-align: center;
+      font-size: 20px;
+      line-height: 22px;
+      color: #fafafa;
+      text-transform: uppercase; }
+      #app .appContent header h3 {
+        margin: 0 20px; }
+      #app .appContent header .toggleHelp {
+        width: 30px;
+        cursor: pointer;
+        text-align: center; }
+      #app .appContent header .logo {
+        width: 100%;
+        max-width: 450px; }
+      #app .appContent header .toggleLeaderboard {
+        width: 40px;
+        cursor: pointer;
+        text-align: center; }
+    #app .appContent #gameData {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      width: 600px;
+      margin-top: 60px;
+      text-align: center;
+      font-size: 30px;
+      font-weight: 700; }
+      #app .appContent #gameData h3 {
+        margin-bottom: 5px; }
+      #app .appContent #gameData .score {
+        color: #fafafa; }
+        #app .appContent #gameData .score span {
+          color: #191919; }
+      #app .appContent #gameData .counter.errorColor {
+        color: red; }
+        #app .appContent #gameData .counter.errorColor h3 {
+          color: #fafafa; }
+    #app .appContent #lost {
+      width: 600px;
+      margin-top: 50px;
+      text-align: center;
+      font-size: 40px;
+      line-height: 50px; }
+      #app .appContent #lost .consolation {
+        display: inline-block;
+        vertical-align: top;
+        width: 49%;
+        text-align: left;
+        font-size: 50px;
+        font-weight: 700;
+        color: #FFE751; }
+      #app .appContent #lost .scoreFinal {
+        display: inline-block;
+        vertical-align: top;
+        width: 44%;
+        padding-left: 5%;
+        text-align: left; }
+        #app .appContent #lost .scoreFinal .score {
+          display: block;
+          font-size: 50px;
+          font-weight: 700;
+          color: #FFE751; }
+        #app .appContent #lost .scoreFinal form #pseudo {
+          width: 250px;
+          border-radius: 7px;
+          margin: 0 auto;
+          padding: 6px 5px 6px 12px;
+          border: none;
+          text-align: left;
+          font-size: 25px;
+          font-weight: 700;
+          color: #191919; }
+        #app .appContent #lost .scoreFinal button.save {
+          background: none;
+          border: none;
+          font-family: 'Amatic SC', cursive;
+          font-size: 20px;
+          color: #fafafa;
+          text-transform: uppercase; }
+    #app .appContent #allScores {
+      z-index: 3;
+      width: 600px;
+      margin-top: 30px;
+      text-align: center;
+      font-size: 35px;
+      font-weight: 700;
+      line-height: 70px;
+      text-transform: uppercase;
+      color: #fafafa; }
+      #app .appContent #allScores ul {
+        height: 426px;
+        overflow: hidden; }
+        #app .appContent #allScores ul li {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+          justify-content: space-between;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          border-bottom: 1px solid #fafafa; }
+          #app .appContent #allScores ul li.topTabScore {
+            font-family: 'Amatic SC', cursive; }
+          #app .appContent #allScores ul li span.finalRank {
+            width: 150px;
+            font-weight: 400;
+            color: #FFE751; }
+          #app .appContent #allScores ul li span.finalName {
+            width: 300px; }
+          #app .appContent #allScores ul li span.finalScore {
+            width: 150px;
+            color: #191919; }
+    #app .appContent #instruction {
+      max-width: 600px;
+      margin: 60px 0 0;
+      text-align: center; }
+      #app .appContent #instruction h3 {
+        width: 82px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #fafafa;
+        text-align: left; }
+      #app .appContent #instruction ul {
+        text-align: left;
+        font-size: 30px;
+        line-height: 40px; }
+    #app .appContent #wordToWrite #textField {
+      z-index: 3;
+      position: absolute;
+      background: none;
+      width: 600px;
+      margin: 59px 0 0;
+      opacity: 0.7;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: 1px solid #fafafa;
+      font-family: 'Rubik', sans-serif;
+      font-size: 80px;
+      font-weight: 700;
+      color: #FFE751; }
+    #app .appContent #wordsList {
+      position: relative;
+      margin: 63px 0 0 1px;
+      font-family: 'Rubik', sans-serif; }
+      #app .appContent #wordsList .encouragementWord {
+        position: absolute;
+        left: 300px;
+        top: 35px;
+        font-family: 'Amatic SC', cursive;
+        font-size: 30px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0); }
+        #app .appContent #wordsList .encouragementWord.active {
+          -webkit-animation: encouragementWord 2s;
+          animation: encouragementWord 2s; }
+      #app .appContent #wordsList .makeItHarderWord {
+        position: absolute;
+        left: 350px;
+        top: 40px;
+        font-size: 30px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0); }
+        #app .appContent #wordsList .makeItHarderWord.active {
+          -webkit-animation: makeItHarderWord 2.5s;
+          animation: makeItHarderWord 2.5s; }
+      #app .appContent #wordsList li {
+        opacity: 0;
+        font-size: 80px;
+        font-weight: 700;
+        line-height: 90px;
+        color: #fafafa; }
+        #app .appContent #wordsList li.nextNextWord {
+          opacity: 0.33; }
+        #app .appContent #wordsList li.nextWord {
+          opacity: 0.66; }
+        #app .appContent #wordsList li.active {
+          opacity: 1; }
+        #app .appContent #wordsList li.error {
+          -webkit-animation: animErrorShake 0.4s 1 linear;
+          animation: animErrorShake 0.4s 1 linear; }
+
+/* All animations */
+@-webkit-keyframes timerTick {
+  from {
+    background: #EB565F; }
+  to {
+    background: rgba(235, 86, 95, 0); } }
+@keyframes timerTick {
+  from {
+    background: #EB565F; }
+  to {
+    background: rgba(235, 86, 95, 0); } }
+
+@-webkit-keyframes encouragementWord {
+  from {
+    color: #ffe751;
+    top: 35px; }
+  to {
+    color: rgba(255, 231, 81, 0);
+    top: 5px; } }
+
+@keyframes encouragementWord {
+  from {
+    color: #ffe751;
+    top: 35px; }
+  to {
+    color: rgba(255, 231, 81, 0);
+    top: 5px; } }
+
+@-webkit-keyframes makeItHarderWord {
+  from {
+    color: black;
+    top: 40px; }
+  to {
+    color: transparent;
+    top: 5px; } }
+
+@keyframes makeItHarderWord {
+  from {
+    color: black;
+    top: 40px; }
+  to {
+    color: transparent;
+    top: 5px; } }
+
+@-webkit-keyframes animErrorShake {
+  0% {
+    -webkit-transform: translate(30px);
+    transform: translate(30px); }
+  20% {
+    -webkit-transform: translate(-30px);
+    transform: translate(-30px); }
+  40% {
+    -webkit-transform: translate(15px);
+    transform: translate(15px); }
+  60% {
+    -webkit-transform: translate(-15px);
+    transform: translate(-15px); }
+  80% {
+    -webkit-transform: translate(8px);
+    transform: translate(8px); }
+  100% {
+    -webkit-transform: translate(0px);
+    transform: translate(0px); } }
+
+@keyframes animErrorShake {
+  0% {
+    -webkit-transform: translate(30px);
+    transform: translate(30px); }
+  20% {
+    -webkit-transform: translate(-30px);
+    transform: translate(-30px); }
+  40% {
+    -webkit-transform: translate(15px);
+    transform: translate(15px); }
+  60% {
+    -webkit-transform: translate(-15px);
+    transform: translate(-15px); }
+  80% {
+    -webkit-transform: translate(8px);
+    transform: translate(8px); }
+  100% {
+    -webkit-transform: translate(0px);
+    transform: translate(0px); } }
