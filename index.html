@@ -139,8 +139,8 @@
 
 					<ul>
 						<li> 1. Type the words the fastest you can </li>
-						<li> 2. Validate by hitting space or enter </li>
-						<li> 3. Score the most </li>
+						<li> 2. Validate by hitting enter </li>
+						<li> 3. Score the most points </li>
 						<li> 4. Beat your friends </li>
 						<li> 5. Rub it in their faces </li>
 					</ul>
@@ -166,7 +166,6 @@
 						id="textField" 
 						ref="wordsToWrite" 
 						@keydown.enter="checkWord" 
-						@keydown.space="checkWord" 
 						@keydown.once="setTimer"  
 						autocomplete="off" 
 					>
@@ -202,6 +201,7 @@
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
 	<script src="js/app.js"></script>  	
+
 
 </body>
 
