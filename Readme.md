@@ -16,13 +16,20 @@ Le but étant d'écrire le plus de mots possible dans un temps donné.**
 - [ ] Stocker les scores pour les garder et ne plus les perdre à chaque refresh.
 - [ ] Autofocus le champs pour écrire les mots lors du click sur `Play again`
 
-
 ## Améliorations de code
 
 J'ai le sentiment d'avoir utilisé les `class` de la mauvaise façon. Je m'en suis rendu compte en les utilisant et en pensant à les ré-utiliser. Il faudrait que chaque `class` ne comprenne uniquement que les fonctions vraiment "core" à son utilisation. 
 Ex: Timer : Init, Reset, Start, Stop
 
-## Information Inutile
+### API
+
+j'ai utilisé la très bonne API [Datamuse](https://www.datamuse.com/) pour générer les listes de mots.
+
+#### Information Inutile
 
 :clock1030: 
 J'ai passé entre 25h et 30h sur l'ensemble de ce projet.
+
+
+
+
