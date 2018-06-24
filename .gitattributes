@@ -1,0 +1,3 @@
+$ cat .gitattributes
+*.rb linguist-language=Vue
+*.rb linguist-vendored=Vue
