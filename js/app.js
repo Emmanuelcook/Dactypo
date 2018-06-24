@@ -452,9 +452,7 @@ let vm = new Vue({
 		counter_store.start(),
 	   	axios
 	      .get('https://api.datamuse.com/words?sp=?????&max=35')
-	      .then( response => 
-	      	(this.words = response.data)
-	      ),
+	      .then( response => (this.words = response.data)),
 	      this.$refs.wordsToWrite.focus();
 	 },
 

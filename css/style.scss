@@ -357,6 +357,10 @@ html, body{
 			}
 		}
 	}	
+
+	.smallScreen{
+		display: none;
+	}
 }
 
 /* All animations */
@@ -395,4 +399,29 @@ html, body{
 	60% { transform: translate(-15px); }
 	80% { transform: translate(8px); }
 	100% { transform: translate(0px); }
+}
+
+/* Media queries juste pour écran trop petit */
+
+@media (max-width: 640px){
+
+	.appContent{
+		display: none;
+	}
+
+	.smallScreen{
+		display: block;
+		position: fixed;
+		top: 20px;
+		left: 20px;
+		width: 90%;
+		font-size: 18px;
+		line-height: 30px;
+
+		img{
+			width: 300px;
+			display: block;
+			margin-bottom: 20px;
+		}
+	}
 }
