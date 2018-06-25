@@ -16,10 +16,14 @@ Le but étant d'écrire le plus de mots possible dans un temps donné.**
 - [ ] Stocker les scores pour les garder et ne plus les perdre à chaque refresh.
 - [ ] Autofocus le champs pour écrire les mots lors du click sur `Play again`
 
+
+
 ## Améliorations de code
 
 J'ai le sentiment d'avoir utilisé les `class` de la mauvaise façon. Je m'en suis rendu compte en les utilisant et en pensant à les ré-utiliser. Il faudrait que chaque `class` ne comprenne uniquement que les fonctions vraiment "core" à son utilisation. 
 Ex: Timer : Init, Reset, Start, Stop
+
+La live démo a régulièrement un problème de `cross-origin` dû au chargement de datamuse. Un simple refresh résout le problème, mais je vais devoir régler ça.
 
 ## API
 
